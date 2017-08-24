@@ -8,13 +8,20 @@ public class Practice {
             //     url:       http://127.0.0.1
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select user_id,name,password from users where user_id = 1");
-            resultSet.next();
-           long id = resultSet.getLong("user_id");
-           String name = resultSet.getString("name");
-           String password = resultSet.getString("password");
+            ResultSet resultSet = statement.executeQuery("select user_id,name,password from users ");
+            while(true) {
+                boolean next = resultSet.next();
+                if (next == true) {
+                    long id = resultSet.getLong("user_id");
+                    String name = resultSet.getString("name");
+                    String password = resultSet.getString("password");
+                    System.out.println(id + name + password);
+                }
+               else{
+                    break;
+                }
 
-           System.out.println(id + name + password );
+            }
            resultSet.close();
            statement.close();
            connection.close();
