@@ -4,7 +4,7 @@ public class Practice {
     public static void main(String[]args){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/shopping","root","root");
+            Connection connection= DriverManager.getConnection("jdbc:mysql://10.1.2.107:3306/shopping","root","root");
             //     url:       http://127.0.0.1
 
             Statement statement = connection.createStatement();
@@ -17,9 +17,7 @@ public class Practice {
                     String password = resultSet.getString("password");
                     System.out.println(id + name + password);
                 }
-               else{
-                    break;
-                }
+                break;
 
             }
            resultSet.close();

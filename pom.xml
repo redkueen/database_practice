@@ -8,19 +8,13 @@
     <artifactId>database_practice</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <dependencies>
+     <dependencies>
 
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.41</version>
-        </dependency>
-
-
-
-
-
-
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.41</version>
+    </dependency>
     </dependencies>
 </project>
