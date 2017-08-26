@@ -1,9 +1,6 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
-public class Pratice4 {
+public class Pratice5 {
     public static void main(String[]args){
 
         try {
@@ -12,12 +9,22 @@ public class Pratice4 {
 
            Statement statement = connection.createStatement();
            connection.setAutoCommit(false);
-         int rowcount0 = statement.executeUpdate("update user set balance =balance -10000 where id =1");
-        int rowcount1 = statement.executeUpdate("update user set balance =balance +10000 where id =2");
-        connection.commit();
+          ResultSet resultSet = statement.executeQuery("select balance from user where id =1");
 
-        System.out.println(rowcount0 + " " + rowcount1);
+          boolean next = resultSet.next();
+          int balance = resultSet.getInt("balance");
 
+         if(balance>10000) {
+             int rowcount0 = statement.executeUpdate("update user set balance =balance -10000 where id =1");
+             int rowcount1 = statement.executeUpdate("update user set balance =balance +10000 where id =2");
+             connection.commit();
+
+             System.out.println(rowcount0 + " " + rowcount1);
+         }
+         else {
+             connection.rollback();
+             System.out.println("回滚啦！");
+         }
 
             statement.close();
             connection.close();
